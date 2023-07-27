@@ -1,4 +1,14 @@
 .App {
-  
+  background: rgb(209, 208, 208);
+  display: flex;
+  justify-content: center;
+}
+
+.cards{
+  margin-top: 50px;
+  padding: 20px;
+  gap: 70px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
