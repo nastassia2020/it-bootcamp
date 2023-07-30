@@ -5,3 +5,31 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 3rem;
+  right: 1rem;
+  font-size: 5rem;
+  font-weight: bold;
+  color: rgb(3, 3, 88);
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1111px) and (max-width: 1500px){
+  .cards{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1110px){
+  .cards{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 766px){
+  .cards{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

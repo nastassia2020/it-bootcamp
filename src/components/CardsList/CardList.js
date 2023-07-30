@@ -12,6 +12,7 @@ export default function CardList() {
   const [selectedCharacter, setSelectedCharacter] = React.useState(null);
   const [openModal, setOpenModal] = React.useState(false);
   const [hasMore, setHasMore] = React.useState(true);
+  const [showScroll, setShowScroll] = React.useState(false);
 
   const fetchData = async () => {
     const res = await axios.get(
@@ -37,6 +38,18 @@ export default function CardList() {
     console.log("data ", data);
   }, []);
 
+  React.useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScroll && window.pageYOffset > 400) {
+        setShowScroll(true);
+      } else if (showScroll && window.pageYOffset <= 400) {
+        setShowScroll(false);
+      }
+    };
+    window.addEventListener("scroll", checkScrollTop);
+    return () => window.removeEventListener("scroll", checkScrollTop);
+  }, [showScroll]);
+
   const closeModalHandler = (e) => {
     e.preventDefault();
     setOpenModal(false);
@@ -52,8 +65,20 @@ export default function CardList() {
     setOpenModal(true);
   };
 
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="App">
+      {showScroll && (
+        <div className="scroll-to-top" onClick={scrollTop}>
+          &uarr;
+        </div>
+      )}
       <InfiniteScroll
         dataLength={data.length}
         next={fetchMoreData}

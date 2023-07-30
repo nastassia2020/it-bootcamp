@@ -40,3 +40,52 @@
 .mainInfo-title{
     font-weight: bold;
 }
+
+@media only screen and (min-width: 1111px) and (max-width: 1500px){
+  .modal{
+    width: 1000px;
+    height: 530px;
+  }
+
+  .mainInfo{
+    padding-top: 10px;
+}
+    .mainInfo-col{
+        font-size: 22px;
+    }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1110px){
+    .modal{
+    width: 750px;
+    height: 400px;
+  }
+
+  .mainInfo{
+    padding-top: 5px;
+}
+    .mainInfo-col{
+        font-size: 14px;
+    }
+  
+}
+
+@media only screen and (min-width: 320px) and (max-width: 766px){
+  .modal{
+    width: 310px;
+    height: 200px;
+  }
+
+  .modal img {
+    width: 160px;
+    height: 200px;
+  }
+
+  .mainInfo{
+    padding-top: 5px;
+}
+    .mainInfo-col{
+        font-size: 6px;
+        margin: 0 5px;
+    }
+}
